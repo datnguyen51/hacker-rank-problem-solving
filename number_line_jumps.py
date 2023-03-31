@@ -21,9 +21,19 @@ import sys
 def kangaroo(x1, v1, x2, v2):
     # Write your code here
 
+    if v1 == v2:
+        return "NO"
+
+    number_jump_of_kangaroo = (x1 - x2) % (v2 - v1)
+
+    if (x1 < x2 and v1 < v2) or number_jump_of_kangaroo < 0:
+        return "NO"
+    else:
+        return "YES"
+
 
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    # fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
     first_multiple_input = input().rstrip().split()
 
@@ -37,6 +47,8 @@ if __name__ == '__main__':
 
     result = kangaroo(x1, v1, x2, v2)
 
-    fptr.write(result + '\n')
+    print(result)
 
-    fptr.close()
+    # fptr.write(result + '\n')
+
+    # fptr.close()
